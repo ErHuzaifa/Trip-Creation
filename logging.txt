@@ -1,0 +1,90 @@
+Request method:	POST
+Request URI:	https://uat-api.pidge.in/v2.0/vendor/order/single
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGhyaXZlIiwibW9iaWxlIjoiOTk5OTk5OTk5OSIsImVtYWlsIjoidGhyaXZlQGhhc2h0YWciLCJpZCI6ODUsImJ1c2luZXNzX2lkIjoxMzksInVzZXJfdHlwZSI6NCwiaWF0IjoxNjI2NDI1NjY1LCJleHAiOjEwMDAwMDAxNjI2NDI1NjY0fQ.6SM20DG6mpJ2lhYR3lp4fQDfePASD7clzIvha7dQGVw
+				deviceid=123
+				buildnumber=1234
+				platform=postman
+				Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "reference_id": "HuzaifaRefID_010",
+    "delivery_date": "2022-05-26",
+    "delivery_slot": "01:00-2:00",
+    "cod": 120,
+    "bill_amount": 140,
+    "not_sending_illegal_items": true,
+    "support_detail": {
+        "name": "Huzaifa",
+        "mobile": "9721373490"
+    },
+    "customer_detail": {
+        "name": "Arjun",
+        "mobile": "9891808989"
+    },
+    "dispatcher_detail": {
+        "name": "Adil",
+        "mobile": "9919787890"
+    },
+    "pickup_address_id": 88995,
+    "drop_address_id": 88998,
+    "packages": [
+        {
+            "quantity": 1,
+            "label": "Package1",
+            "dimension": {
+                "weight": 100,
+                "volume": 200,
+                "length": 20,
+                "width": 20,
+                "height": 20
+            }
+        },
+        {
+            "quantity": 1,
+            "label": "Package2",
+            "dimension": {
+                "weight": 50,
+                "volume": 250,
+                "length": 20,
+                "width": 20,
+                "height": 20
+            }
+        }
+    ]
+}
+HTTP/1.1 200 OK
+Date: Wed, 25 May 2022 13:31:05 GMT
+Content-Type: application/json; charset=utf-8
+Content-Length: 230
+Connection: keep-alive
+vary: origin
+access-control-allow-credentials: true
+access-control-expose-headers: WWW-Authenticate,Server-Authorization
+cache-control: no-cache
+
+{
+    "success": true,
+    "data": {
+        "trip_id": 106713,
+        "PBID": 63547,
+        "track_code": "y7oJ0Pg",
+        "vendor_order_id": 63547
+    },
+    "message": "OK",
+    "meta": {
+        "buildNumber": "51",
+        "forceUpdate": true,
+        "cashfree": {
+            "appId": "68996542afb99d59be07b7e69986",
+            "mode": "test"
+        }
+    }
+}
