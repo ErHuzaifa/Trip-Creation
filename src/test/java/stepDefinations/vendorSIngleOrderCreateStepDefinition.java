@@ -80,6 +80,7 @@ public class vendorSIngleOrderCreateStepDefinition extends Utils {
 	public void verify_rider_reservation_created_in_the_data_base() throws SQLException, IOException {
 		ResultSet rs = null;
 		
+	 //Extracting JSON Data from Request
 		int cod = requestPayLoad.getCod();
 		String RefID = requestPayLoad.getReference_id();
 		int ToAddress = requestPayLoad.getDrop_address_id();
@@ -98,7 +99,7 @@ public class vendorSIngleOrderCreateStepDefinition extends Utils {
 	    String getTripID = getJsonPath(response, "data.trip_id");
 	    String getPBID = getJsonPath(response, "data.PBID");
 	    
-	 //In "map_trip_packages" Table verify 1) Total Quantity from Multiple Packages
+	 //Extracting quantity from packages array and adding total quantity in a variable
 		List<Packages> p = requestPayLoad.getPackages();
 		int totalPackageQuantity = 0;
 		for(int i=0; i<p.size(); i++) {
@@ -106,6 +107,8 @@ public class vendorSIngleOrderCreateStepDefinition extends Utils {
 			int quantity = p.get(i).getQuantity();
 			totalPackageQuantity = totalPackageQuantity + quantity;
 		}
+		
+	 //In "map_trip_packages" Table verify 1) Total Quantity from Multiple Packages
 		rs = getDBConnectionAndExecuteQuery("select * from map_trip_packages where trip_id ="+getTripID);
 	    rs.next();
 	    assertEquals("Verify Total Quantity from Multiple Packages is correctly saved in database",totalPackageQuantity, rs.getInt("quantity"));

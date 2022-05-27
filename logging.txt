@@ -16,7 +16,7 @@ Multiparts:		<none>
 Body:
 {
     "reference_id": "HuzaifaRefID_010",
-    "delivery_date": "2022-05-26",
+    "delivery_date": "2022-05-29",
     "delivery_slot": "01:00-2:00",
     "cod": 120,
     "bill_amount": 140,
@@ -61,7 +61,7 @@ Body:
     ]
 }
 HTTP/1.1 200 OK
-Date: Wed, 25 May 2022 13:31:05 GMT
+Date: Fri, 27 May 2022 18:47:34 GMT
 Content-Type: application/json; charset=utf-8
 Content-Length: 230
 Connection: keep-alive
@@ -73,10 +73,10 @@ cache-control: no-cache
 {
     "success": true,
     "data": {
-        "trip_id": 106713,
-        "PBID": 63547,
-        "track_code": "y7oJ0Pg",
-        "vendor_order_id": 63547
+        "trip_id": 106764,
+        "PBID": 63577,
+        "track_code": "P2qJlYA",
+        "vendor_order_id": 63577
     },
     "message": "OK",
     "meta": {

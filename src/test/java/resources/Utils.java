@@ -42,7 +42,7 @@ public class Utils {
 			return req;
 		}
 		return req;
-				 //.setContentType(ContentType.JSON).build();
+				
 		 
 }
 	
@@ -86,6 +86,7 @@ public class Utils {
 		return tomorrowsDate;
 	}
 	
+ //Postgre SQL connector code	
 	public ResultSet getDBConnectionAndExecuteQuery(String queryToExecute) throws SQLException {
 		ResultSet rs = null;
 		Connection conn = null;
