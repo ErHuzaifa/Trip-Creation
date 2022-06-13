@@ -6,9 +6,16 @@ import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/java/features/v2VendorOrderSingle.feature", glue= {"stepDefinations"})
+@CucumberOptions
+
+//(features="src/test/java/features/v2VendorOrderSingle.feature", glue= "stepDefinations")
+//(features="src/test/java/features/Dotpe.feature", glue= "stepDefinations")
+(features="src/test/java/features", glue= "stepDefinations")
+
 public class TestRunner {
 
 }
+
+
 
 

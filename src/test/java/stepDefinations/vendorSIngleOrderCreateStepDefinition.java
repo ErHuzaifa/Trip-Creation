@@ -41,7 +41,7 @@ public class vendorSIngleOrderCreateStepDefinition extends Utils {
 	 static VendorSingleTripCreation requestPayLoad;
 	 public static String jsonAsString;
 	
-	 @Given("VendorSingleOrderCreate API  with {string} {string}")
+	 @Given("VendorSingleOrderCreate API with {string} {string}")
 	 public void vendorsingleordercreate_API_with(String string, String string2) throws IOException {
 	      
 		          String authToken = getGlobalValue("vendorAuthToken");
@@ -100,8 +100,8 @@ public class vendorSIngleOrderCreateStepDefinition extends Utils {
 	    String getPBID = getJsonPath(response, "data.PBID");
 	    
 	 //Extracting quantity from packages array and adding total quantity in a variable
-		List<Packages> p = requestPayLoad.getPackages();
-		int totalPackageQuantity = 0;
+	    List<Packages> p = requestPayLoad.getPackages();
+        int totalPackageQuantity = 0;
 		for(int i=0; i<p.size(); i++) {
 			
 			int quantity = p.get(i).getQuantity();
