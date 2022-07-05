@@ -1,4 +1,4 @@
-Feature: Vendor V2 Single Order Creation
+Feature: V2 Vendor Order Single Order Creation
 @VendorV2
 Scenario Outline: Verify v2.0/vendor/order/single trip creation is working as expected
   Given VendorSingleOrderCreate API with "<testDataSheet>" "<testCaseName>"

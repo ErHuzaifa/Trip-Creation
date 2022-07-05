@@ -1,4 +1,4 @@
-package DotpePOJO;
+package v1VendorOrderPOJO;
 
 public class ToAddressExactLocation {
 	
@@ -18,7 +18,4 @@ public class ToAddressExactLocation {
 		this.longitude = longitude;
 	}
 
-
 }
-
-

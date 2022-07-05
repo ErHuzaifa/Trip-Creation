@@ -3,39 +3,30 @@ package stepDefinations;
 import static io.restassured.RestAssured.*;
 import static org.junit.Assert.assertEquals;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-
-import org.junit.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.restassured.RestAssured;
-import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
+import resources.TestDataSingleTripCreation;
+import resources.Utils;
 import v2VendorOrderSinglePOJO.CustomerDetail;
 import v2VendorOrderSinglePOJO.DispatcherDetail;
 import v2VendorOrderSinglePOJO.Packages;
 import v2VendorOrderSinglePOJO.SupportDetail;
 import v2VendorOrderSinglePOJO.VendorSingleTripCreation;
-import resources.TestDataSingleTripCreation;
-import resources.Utils;
 
-public class vendorSIngleOrderCreateStepDefinition extends Utils {
+public class v2VendorOrderSingleStepDefinition extends Utils { 
 	
-	 RequestSpecification requestSpec;
+	RequestSpecification requestSpec;
 	 ResponseSpecification responseSpec;
 	 Response response;
 	 static VendorSingleTripCreation requestPayLoad;
@@ -49,10 +40,10 @@ public class vendorSIngleOrderCreateStepDefinition extends Utils {
 		          
 				  TestDataSingleTripCreation data = new TestDataSingleTripCreation();
 				  requestPayLoad = data.testDataVendorSingleTripCreation(string, string2);
-				  requestSpec=given().spec(requestSpecification(authToken))
+				  requestSpec = given().spec(requestSpecification(authToken))
 				  .body(requestPayLoad);
 				  
-    }
+   }
 
 
 	@When("User calls {string} api with {string} https request")
@@ -101,7 +92,7 @@ public class vendorSIngleOrderCreateStepDefinition extends Utils {
 	    
 	 //Extracting quantity from packages array and adding total quantity in a variable
 	    List<Packages> p = requestPayLoad.getPackages();
-        int totalPackageQuantity = 0;
+       int totalPackageQuantity = 0;
 		for(int i=0; i<p.size(); i++) {
 			
 			int quantity = p.get(i).getQuantity();
@@ -119,7 +110,7 @@ public class vendorSIngleOrderCreateStepDefinition extends Utils {
 	    rs.next();
 	    assertEquals("Verify volume is correctly saved in database",1800, rs.getInt("volume"));
 	    
-	 //In "multi_cash_payments" Table verify 1) COD 2) reference_id 3) to_address 4) from_address 5) Dispatcher Details 6) Customer Details
+	 //In "multi_cash_payments" Table verify 1) COD 2) reference_id 3) from_address 4) to_address 5) Dispatcher Details 6) Customer Details
 		rs = getDBConnectionAndExecuteQuery("select * from multi_cash_payments where id="+getPBID);
 	    rs.next();
 	    assertEquals("Verify cod is correctly saved in database",cod, rs.getInt("amount"));
@@ -167,9 +158,9 @@ public class vendorSIngleOrderCreateStepDefinition extends Utils {
 	    assertEquals("Verify deliveryDate is correctly saved in database", deliveryDate, rs.getString("delivery_date"));
 	    assertEquals("Verify deliverySlot is correctly saved in database", deliverySlot, rs.getString("delivery_slot"));
 	    
-     //In "vendor_credential_logs" Table verify 1) business_id with vendor's token
+    //In "vendor_credential_logs" Table verify 1) business_id with vendor's token
 	    String getAuth = getGlobalValue("vendorAuthToken");
-        String Token = getAuth.replace("Bearer ", "\'")+"\'";
+       String Token = getAuth.replace("Bearer ", "\'")+"\'";
 	    rs = getDBConnectionAndExecuteQuery("select * from vendor_credential_logs where api_key ="+Token);
 	    rs.next();
 	    assertEquals("Verify business_id 139 saved in database", 139, rs.getInt("business_id"));
@@ -183,3 +174,4 @@ public class vendorSIngleOrderCreateStepDefinition extends Utils {
 	    
 	}
 }
+

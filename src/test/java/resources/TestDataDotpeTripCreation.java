@@ -57,10 +57,10 @@ public class TestDataDotpeTripCreation {
 		ta.setInstructions_to_reach(a.get(20));
 		ta.setGoogle_maps_address(a.get(21));
 		
-		DotpePOJO.ExactLocation el2 = new DotpePOJO.ExactLocation();
+		DotpePOJO.ToAddressExactLocation el2 = new DotpePOJO.ToAddressExactLocation();
         el2.setLatitude(Double.parseDouble(a.get(22)));
         el2.setLongitude(Double.parseDouble(a.get(23)));
-        ta.setExact_location(el);
+        ta.setExact_location(el2);
         ta.setState(a.get(24));
         ta.setPincode(u.stringToInt(a, 25));
         data.setTo_address(ta);

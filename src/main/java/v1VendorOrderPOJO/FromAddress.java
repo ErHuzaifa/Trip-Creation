@@ -1,15 +1,15 @@
-package DotpePOJO;
+package v1VendorOrderPOJO;
 
-public class ToAddress {
+public class FromAddress {
 	
 	private String address_line1;
 	private String address_line2;
     private String landmark;
     private String instructions_to_reach;
     private String google_maps_address;
-    private ToAddressExactLocation exact_location;
+    private FromAddressExactLocation exact_location;
     private String state;
-    private int pincode;
+    private String pincode;
 	
 	public String getAddress_line1() {
 		return address_line1;
@@ -41,10 +41,10 @@ public class ToAddress {
 	public void setGoogle_maps_address(String google_maps_address) {
 		this.google_maps_address = google_maps_address;
 	}
-	public ToAddressExactLocation getExact_location() {
+	public FromAddressExactLocation getExact_location() {
 		return exact_location;
 	}
-	public void setExact_location(ToAddressExactLocation exact_location) {
+	public void setExact_location(FromAddressExactLocation exact_location) {
 		this.exact_location = exact_location;
 	}
 	public String getState() {
@@ -53,13 +53,14 @@ public class ToAddress {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getPincode() {
+	public String getPincode() {
 		return pincode;
 	}
-	public void setPincode(int pincode) {
+	public void setPincode(String pincode) {
 		this.pincode = pincode;
 	}
+
+	
+
+
 }
-
-
-

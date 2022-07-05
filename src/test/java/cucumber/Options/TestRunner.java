@@ -10,6 +10,7 @@ import io.cucumber.junit.CucumberOptions;
 
 //(features="src/test/java/features/v2VendorOrderSingle.feature", glue= "stepDefinations")
 //(features="src/test/java/features/Dotpe.feature", glue= "stepDefinations")
+//(features="src/test/java/features/v1VendorOrder.feature", glue= "stepDefinations")
 (features="src/test/java/features", glue= "stepDefinations")
 
 public class TestRunner {
